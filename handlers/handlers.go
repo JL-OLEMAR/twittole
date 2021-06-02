@@ -30,6 +30,7 @@ func Manejadores() {
 	router.HandleFunc("/tweet", middlewares.ChequeoBD(middlewares.ValidoJWT(routers.GraboTweet))).Methods("POST")
 	router.HandleFunc("/leoTweets", middlewares.ChequeoBD(middlewares.ValidoJWT(routers.LeoTweets))).Methods("GET")
 	router.HandleFunc("/eliminarTeew", middlewares.ChequeoBD(middlewares.ValidoJWT(routers.EliminarTweet))).Methods("DELETE")
+	router.HandleFunc("/leoTweetsSeguidores", middlewares.ChequeoBD(middlewares.ValidoJWT(routers.LeoTweetsSeguidores))).Methods("GET")
 
 	// EndPoints de relacion entre usuarios
 	router.HandleFunc("/altaRelacion", middlewares.ChequeoBD(middlewares.ValidoJWT(routers.AltaRelacion))).Methods("POST")
