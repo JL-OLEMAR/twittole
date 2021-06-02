@@ -24,6 +24,7 @@ func Manejadores() {
 	router.HandleFunc("/obtenerAvatar", middlewares.ChequeoBD(routers.ObtenerAvatar)).Methods("GET")
 	router.HandleFunc("/subirBanner", middlewares.ChequeoBD(middlewares.ValidoJWT(routers.SubirBanner))).Methods("POST")
 	router.HandleFunc("/obtenerBanner", middlewares.ChequeoBD(routers.ObtenerBanner)).Methods("GET")
+	router.HandleFunc("/listaUsuarios", middlewares.ChequeoBD(middlewares.ValidoJWT(routers.ListaUsuarios))).Methods("GET")
 
 	// EndPoints de tweet
 	router.HandleFunc("/tweet", middlewares.ChequeoBD(middlewares.ValidoJWT(routers.GraboTweet))).Methods("POST")
