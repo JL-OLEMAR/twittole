@@ -61,11 +61,6 @@ func LeoUsuariosTodos(ID string, page int64, search string, tipo string) ([]*mod
 			incluir = false
 		}
 
-		//ojito
-		if err == cur.Err() {
-			return results, false
-		}
-
 		if incluir {
 			s.Password = ""
 			s.Biografia = ""
