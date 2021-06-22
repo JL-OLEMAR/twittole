@@ -49,9 +49,6 @@ func LeoUsuariosTodos(ID string, page int64, search string, tipo string) ([]*mod
 		incluir = false
 
 		encontrado, err = ConsultoRelacion(r)
-		if err != nil {
-			results = nil
-		}
 
 		if tipo == "new" && !encontrado {
 			incluir = true
@@ -62,6 +59,11 @@ func LeoUsuariosTodos(ID string, page int64, search string, tipo string) ([]*mod
 
 		if r.UsuarioRelacionID == ID {
 			incluir = false
+		}
+
+		//ojito
+		if err == cur.Err() {
+			return results, false
 		}
 
 		if incluir {
